@@ -1,0 +1,20 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper {
+  grid-column: first / last;
+}
+
+.detail_img {
+  padding: 20px;
+}
+.detail_img img {
+  width: 100%;
+}
+
+.detail_container p {
+  color: #555b;
+  margin-bottom: 15px;
+}
