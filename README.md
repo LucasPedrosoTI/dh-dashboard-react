@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Dashboard with React
+
+![Preview image](/public/assets/dashboard.png?raw=true "Interface Preview")
+
 ## Available Scripts
 
 In the project directory, you can run:
