@@ -15,7 +15,7 @@ function LastProduct({ title }) {
           rerum ad id quasi.
         </p>
 
-        <a href="#">View product detail</a>
+        <button>View product detail</button>
       </div>
     </>
   );

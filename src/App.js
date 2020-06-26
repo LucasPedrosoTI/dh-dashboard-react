@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FiClipboard, FiDollarSign, FiUserCheck } from "react-icons/fi";
 import "./App.css";
 
@@ -10,6 +10,21 @@ import LastProduct from "./components/LastProduct";
 import CategoryCard from "./components/CategoryCard";
 
 function App() {
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    async function fetchPokemons() {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon");
+      const data = await response.json();
+
+      console.log(data);
+
+      setPokemons(data.results);
+    }
+
+    fetchPokemons();
+  }, []);
+
   return (
     <div className="App">
       <Sidebar />
@@ -20,7 +35,7 @@ function App() {
           <div className="cards_container">
             <SummaryCard
               title="products in data base"
-              info="135"
+              info={pokemons.length}
               icon={<FiClipboard />}
               cardColor="blue"
             />
@@ -32,7 +47,7 @@ function App() {
             />
             <SummaryCard
               title="users quantity"
-              info="38"
+              info={pokemons.length}
               icon={<FiUserCheck />}
               cardColor="yellow"
             />
@@ -42,12 +57,11 @@ function App() {
               <LastProduct />
             </InfoContainer>
             <InfoContainer title="Categories in Data Base">
-              <CategoryCard num="01" />
-              <CategoryCard num="02" />
-              <CategoryCard num="03" />
-              <CategoryCard num="04" />
-              <CategoryCard num="05" />
-              <CategoryCard num="06" />
+              {pokemons !== ""
+                ? pokemons.map((poke, i) => (
+                    <CategoryCard key={i} num={poke.name} />
+                  ))
+                : ""}
             </InfoContainer>
           </div>
         </div>

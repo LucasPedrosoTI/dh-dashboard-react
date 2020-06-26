@@ -3,6 +3,13 @@ a {
   color: inherit;
 }
 
+button {
+  border: none;
+  background-color: unset;
+  color: inherit;
+  cursor: pointer;
+}
+
 .wrapper {
   grid-column: first / last;
 }
